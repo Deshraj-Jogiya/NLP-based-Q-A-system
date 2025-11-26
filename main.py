@@ -84,10 +84,30 @@ def extract_contact(text):
     phones = [m.group(0).strip() for m in PHONE_RE.finditer(text)]
     return emails + phones
 
+NUMBER_WORDS = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8, "nine": 9, "ten": 10,
+                "eleven": 11, "twelve": 12}
+MONTHS = r"(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*"
+# Dates ("November 20", "December 3rd"), times ("8pm") and phone-like digit runs are not counts
+NOT_A_COUNT_RE = re.compile(rf"\b{MONTHS}\s+\d{{1,2}}(?:st|nd|rd|th)?\b|\b\d{{1,2}}\s*(?:am|pm)\b|\d[\d\-]{{6,}}\d", re.IGNORECASE)
+COUNT_RE = re.compile(r"\b(\d+|" + "|".join(NUMBER_WORDS) + r")\b", re.IGNORECASE)
+PARTY_RE = re.compile(r"\b(?:for|of)\s+(\d+|" + "|".join(NUMBER_WORDS) + r")\b", re.IGNORECASE)
+
+
+def _to_int(token):
+    return int(token) if token.isdigit() else NUMBER_WORDS[token.lower()]
+
+
+def extract_counts(text):
+    """Quantities in a message, as digits or number words, ignoring dates, times and phone numbers."""
+    return [_to_int(t) for t in COUNT_RE.findall(NOT_A_COUNT_RE.sub(" ", text))]
+
+
 def infer_companions(message):
-    """Infer if person is going with someone based on numbers"""
-    nums = [int(n) for n in NUM_RE.findall(message)]
-    total_people = max(nums) if nums else 1
+    """Infer if person is going with someone from the party size ("for two", "family of five") or the first count"""
+    cleaned = NOT_A_COUNT_RE.sub(" ", message)
+    party = PARTY_RE.search(cleaned)
+    counts = extract_counts(message)
+    total_people = _to_int(party.group(1)) if party else (counts[0] if counts else 1)
     if total_people > 1:
         return f"Yes, going with {total_people - 1} person(s)."
     else:
@@ -142,7 +162,7 @@ def answer_question(question):
             return {"answer": f"No contact info found for {subject}."}
 
     if any(k in q_lower for k in ["how many", "tickets", "reservations"]):
-        nums = [int(n) for n in NUM_RE.findall(msg_text)]
+        nums = extract_counts(msg_text)
         if nums:
             return {"answer": f"{subject} has {nums[0]} item(s)."}
 
