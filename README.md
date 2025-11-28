@@ -20,6 +20,8 @@ same data also runs through LlamaIndex, Semantic Kernel and a LangChain RAG chai
 - **Three more paths over the same data:** a LlamaIndex `VectorStoreIndex` retriever, Semantic Kernel plugin functions orchestrated by a
   Kernel, and a retrieve-then-generate LangChain RAG chain running a local model.
 
+Measured results, each with the question, the test and the decision: [docs/FINDINGS.md](docs/FINDINGS.md).
+
 ## Architecture
 
 ```mermaid
