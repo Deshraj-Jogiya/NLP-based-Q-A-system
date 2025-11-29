@@ -22,7 +22,8 @@ The one miss asks for Lorenzo's Thursday booking; the top-ranked message is his 
 **Skills shown:** sentence-transformers embeddings, cosine-similarity ranking, spaCy NER, fuzzy matching, labelled evaluation set,
 CI quality gate.
 
-**Source:** `eval_results.csv`, `eval_set.json`, `eval_qa.py`, `README.md`.
+**Source:** `eval_results.csv`, `eval_set.json`, `eval_qa.py`; the 90% gate is `test_counts.py` (`assert scores["answer_ok"] >= 0.9`),
+run in `.github/workflows/ci.yml`.
 
 ## What did fixing how counts are read change?
 
@@ -41,4 +42,4 @@ about Hans were answered wrongly.
 
 **Skills shown:** regex extraction rules, error analysis on labelled questions.
 
-**Source:** `README.md`; the earlier `eval_results.csv` in commit 79e2417 (22 of 26), the current `eval_results.csv` (25 of 26).
+**Source:** `README.md`, `test_counts.py` (the date and number-word cases); the earlier `eval_results.csv` in commit 79e2417 (22 of 26), the current `eval_results.csv` (25 of 26).
