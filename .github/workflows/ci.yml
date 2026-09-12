@@ -24,3 +24,7 @@ jobs:
           python -c "import alternate_approch"
       - name: Run the data-quality profiling script
         run: python data_insights.py
+      - name: Install pytest and run the LlamaIndex semantic search tests
+        run: |
+          pip install pytest
+          pytest test_llamaindex_search.py -v
