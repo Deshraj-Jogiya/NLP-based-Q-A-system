@@ -28,3 +28,5 @@ jobs:
         run: |
           pip install pytest
           pytest test_llamaindex_search.py -v
+      - name: Run the Semantic Kernel plugin orchestration tests
+        run: pytest test_semantic_kernel_plugin.py -v
