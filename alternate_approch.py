@@ -23,7 +23,7 @@ df['timestamp'] = pd.to_datetime(df['timestamp'])
 
 print("Loading embedding model and encoding messages...")
 model = SentenceTransformer('all-MiniLM-L6-v2')
-df['embedding'] = list(model.encode(df['message'], convert_to_numpy=True))
+df['embedding'] = list(model.encode(df['message'].tolist(), convert_to_numpy=True))
 print("Embeddings ready.")
 
 
