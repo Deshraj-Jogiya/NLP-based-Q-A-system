@@ -132,3 +132,28 @@ During the design phase, several approaches were considered:
   - **Customer support systems:** Embeddings + cosine similarity is the standard lightweight method for instant query response.  
 - Provides a **good tradeoff between accuracy, cost, and latency**.  
 - Future upgrades could integrate hybrid LLM approaches if dataset grows in size or query complexity.
+
+---
+
+## Real RAG Pipeline (`rag_chain.py`)
+
+`llamaindex_search.py` and `semantic_kernel_plugin.py` both do retrieval only -- no
+LLM is ever called. `rag_chain.py` is a genuine retrieve-then-generate RAG pipeline,
+orchestrated with **LangChain**: it reuses that same retriever, then generates a real
+natural-language answer grounded in the retrieved messages using a small, free,
+CPU-feasible local model (`HuggingFaceTB/SmolLM2-360M-Instruct`, via LangChain's
+`ChatHuggingFace`) -- no API key, no cost.
+
+```bash
+python rag_chain.py "who wants to book a flight?"
+```
+
+Tests (`test_rag_chain.py`) cover both the retrieval-grounding wiring (fast,
+deterministic, via LangChain's own `FakeListLLM` test double) and one real
+end-to-end run with the actual local model, proving real generation happens, not
+just chain wiring. Building this surfaced two real bugs: the installed
+`transformers` version dropped clean pipeline support for encoder-decoder
+(seq2seq) models like the originally-planned `flan-t5-small`, and an
+instruction-tuned causal model fed a bare completion-style prompt (instead of its
+proper chat template) generates nothing useful -- fixed by switching to
+`ChatHuggingFace`.
