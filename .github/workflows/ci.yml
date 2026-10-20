@@ -32,3 +32,5 @@ jobs:
         run: pytest test_semantic_kernel_plugin.py -v
       - name: Run the LangChain RAG chain tests (real local-model generation, not mocked)
         run: pytest test_rag_chain.py -v
+      - name: Run the /ask API tests
+        run: pytest test_api.py -v
