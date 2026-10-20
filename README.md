@@ -44,3 +44,8 @@ python main.py                          # interactive prompt
 uvicorn api:app --port 8000             # POST /ask {"question": "..."}
 pytest test_api.py test_llamaindex_search.py test_semantic_kernel_plugin.py test_rag_chain.py -v
 ```
+
+## Data
+
+`messages.json` holds 100 member messages from 10 members (one page of a 3,349-message feed). `data_insight_README.MD` lists the
+anomalies and inconsistencies found in it.
