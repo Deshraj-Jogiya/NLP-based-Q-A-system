@@ -1,0 +1,27 @@
+question,subject_ok,retrieval_ok,answer_ok,answer
+Where does Sophia want to fly by private jet?,True,True,True,Sophia Al-Farsi: Please book a private jet to Paris for this Friday.
+How many people is Fatima's reservation at The French Laundry for?,True,True,True,Fatima El-Tahir: Can you confirm my dinner reservation at The French Laundry for four people tonight?
+How many opera tickets does Armand need?,True,True,True,Armand Dupont: I need two tickets to the opera in Milan this Saturday.
+What seat does Layla prefer on flights?,True,True,True,Layla Kawaguchi: Please remember I prefer aisle seats during my flights.
+What is Armand's new phone number?,True,True,True,Armand Dupont's contact: 555-349-7841
+Where does Layla want a villa in December?,True,True,True,Layla Kawaguchi: Book a villa in Santorini for the first week of December.
+When is Fatima's table at Eleven Madison Park?,True,True,True,Fatima El-Tahir: I’d like a table for four at Eleven Madison Park on November 15.
+How many VIP passes does Armand want for the premiere?,True,True,True,Armand Dupont: Can you get me three VIP passes for the film premiere next weekend?
+What is Lily's frequent flyer number?,True,True,True,Lily O'Sullivan's contact: 123456789
+Which restaurant did Lorenzo ask to book for two on Thursday?,True,False,False,Lorenzo Cavalli: Book a romantic dinner for two at The Fat Duck on Saturday.
+How many front-row seats does Hans need for the game?,True,True,False,Hans Müller has 20 item(s).
+What is Vikram's new office address?,True,True,True,Vikram Desai: Please amend my profile to reflect my new office address: 742 Evergreen Terrace.
+What class does Vikram want to fly to Tokyo?,True,True,True,Vikram Desai: I’d like to fly to Tokyo first class on Wednesday.
+Is Hans going to Blue Hill with someone?,True,True,False,"Hans Müller: No, going alone."
+What kind of pillows does Sophia want in her hotel room?,True,True,True,Sophia Al-Farsi: Make sure my hotel room comes with hypoallergenic pillows as usual.
+Which country is Thiago's visa approval for?,True,True,True,Thiago Monteiro: Can you check on the progress of my visa approval for the UK trip?
+What is Layla's new mobile number?,True,True,True,Layla Kawaguchi's contact: 987-654-3210
+How many people is Layla's Le Bernardin reservation for?,True,True,True,Layla Kawaguchi: Secure a dinner reservation at Le Bernardin for my family of five.
+What is Amina's emergency contact number?,True,True,True,Amina Van Den Berg's contact: 312-555-6793
+How many people is Fatima's private dining room at Gaggan for?,True,True,True,Fatima El-Tahir: Reserve a private dining room for ten at Gaggan in Bangkok.
+What is Sophia's direct line at work?,True,True,True,Sophia Al-Farsi: My direct line at work is 212-555-6051; kindly update your records.
+Is Hans flying to San Francisco with someone?,True,True,False,"Hans Müller: Yes, going with 9 person(s)."
+Where does Vikram want to take a Gulfstream?,True,True,True,Vikram Desai: Arrange a Gulfstream for a quick trip to Dubai next Friday.
+What does Thiago always need arranged in advance?,True,True,True,Thiago Monteiro: I always need early check-in arrangements made in advance.
+What is Lily's brother's phone number?,True,True,True,Lily O'Sullivan's contact: 447-555-8823
+Which city does Amina want a tailor in?,True,True,True,Amina Van Den Berg: I'm looking for a tailor to make some custom suits in New York.

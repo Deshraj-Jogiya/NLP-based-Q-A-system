@@ -34,3 +34,7 @@ jobs:
         run: pytest test_rag_chain.py -v
       - name: Run the /ask API tests
         run: pytest test_api.py -v
+      - name: Score the labelled question set and test the count rules
+        run: |
+          python eval_qa.py
+          pytest test_counts.py -v
